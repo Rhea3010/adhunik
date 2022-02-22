@@ -245,3 +245,21 @@ header {
     margin: 0 auto;
     margin-top: 500px;
 }
+
+.map-container-6 {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-container-6 iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: -webkit-linear-gradient(to right, #2d2f31, #00070e) !important;
+    background: linear-gradient(to right, #2d2f31, #00070e) !important;
+    color: rgba(70, 139, 179, 0.993) !important;
+}
