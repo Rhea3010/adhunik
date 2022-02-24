@@ -13,9 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //kind of giving them acess with name
-app.use("/img", express.static(__dirname + "/images"));
-app.use("/css", express.static(__dirname + "/css/style.css"));
-app.use("/css", express.static(__dirname + "/css/style1.css"));
+app.use("/img", express.static(__dirname + "/public/images"));
+app.use("/css", express.static(__dirname + "/public/css"));
+
+app.use("/fonts", express.static(__dirname + "/public/fonts"));
 
 app.use("/js", express.static(__dirname + "/js"));
 

@@ -1,20 +1,20 @@
 var express = require("express");
 var router = express.Router();
-var Email = require("../controllers/emailSendcontroller");
-var email = new Email();
+// var Email = require("../controllers/emailSendcontroller");
+// var email = new Email();
 
 
 //route for get index or home page
 router.get(["/index", "/"], (req, res) => {
-    res.status(200).render("../index.ejs");
+    res.status(200).render("../views/mainpages/index.ejs");
 });
 
 router.get(["/aboutus", "/about"], (req, res) => {
-    res.status(200).render("../aboutus.ejs");
+    res.status(200).render("../views/mainpages/aboutus.ejs");
 });
 
 router.get(["/contactus", "/contact"], (req, res) => {
-    res.status(200).render("../contactus.ejs");
+    res.status(200).render("../views/mainpages/contactus.ejs");
 });
 
 //route for post req from contact us
