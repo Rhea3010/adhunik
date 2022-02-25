@@ -22,43 +22,42 @@
                         <div class="form-header blue accent-1">
                             <h3><i class="fas fa-envelope"></i> Write to us:</h3>
                         </div>
-
-
                         <br>
+                        <form action="/ContactUs" method="post">
+                            <!--Body-->
+                            <div class="md-form">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <label for="form-name">Your name</label>
+                                <input type="text" id="form-name" name="Uname" class="form-control" required>
 
-                        <!--Body-->
-                        <div class="md-form">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <label for="form-name">Your name</label>
-                            <input type="text" id="form-name" class="form-control">
+                            </div>
 
-                        </div>
+                            <div class="md-form">
+                                <i class="fas fa-envelope prefix grey-text"></i>
+                                <label for="form-email">Your email</label>
+                                <input type="email" id="form-email" name="Uemail" class="form-control" required>
 
-                        <div class="md-form">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <label for="form-email">Your email</label>
-                            <input type="text" id="form-email" class="form-control">
+                            </div>
 
-                        </div>
+                            <div class="md-form">
+                                <i class="fas fa-tag prefix grey-text"></i>
+                                <label for="form-Subject">Phone Number </label>
+                                <input type="text" id="form-Subject" name="Uphone" class="form-control" pattern="[789][0-9]{9}" required>
 
-                        <div class="md-form">
-                            <i class="fas fa-tag prefix grey-text"></i>
-                            <label for="form-Subject">Phone Number </label>
-                            <input type="text" id="form-Subject" class="form-control">
+                            </div>
 
-                        </div>
+                            <div class="md-form">
+                                <i class="fas fa-pencil-alt prefix grey-text"></i>
+                                <label for="form-text">subject</label>
+                                <textarea id="form-text" class="form-control md-textarea" name="Umsg" rows="3" required></textarea>
 
-                        <div class="md-form">
-                            <i class="fas fa-pencil-alt prefix grey-text"></i>
-                            <label for="form-text">subject</label>
-                            <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
+                            </div>
 
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <button class="btn btn-light-blue">Submit</button>
-                        </div>
-
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-light-blue">Submit</button>
+                                <button type="reset" class="btn btn-light-blue">Clear</button>
+                            </div>
+                        </form>
                     </div>
 
                 </div>
@@ -71,10 +70,13 @@
             <div class="col-lg-7">
 
                 <!--Google map-->
-                <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 560px">
-                    <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6483.935822019576!2d77.16580285669315!3d28.644174805903134!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x45e370286d8136a3!2sShanKKriti!5e0!3m2!1sen!2sin!4v1645803580074!5m2!1sen!2sin" width="600"
+                        height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <br>
             <!--Buttons-->
             <div class="row text-center">

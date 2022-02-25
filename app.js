@@ -15,10 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 //kind of giving them acess with name
 app.use("/img", express.static(__dirname + "/public/images"));
 app.use("/css", express.static(__dirname + "/public/css"));
-
 app.use("/fonts", express.static(__dirname + "/public/fonts"));
-
-app.use("/js", express.static(__dirname + "/js"));
+app.use("/js", express.static(__dirname + "/public/js"));
 
 //seting view engine
 app.set("view engine", "ejs");
@@ -28,5 +26,5 @@ app.use("/", require("./routes/mainPageRoutes"));
 
 //staring http server
 http.createServer(app).listen(port, () => {
-    console.log(port);
+    console.log("port number is ", port);
 });

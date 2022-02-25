@@ -9,20 +9,27 @@ router.get(["/index", "/"], (req, res) => {
     res.status(200).render("../views/mainpages/index.ejs");
 });
 
-router.get(["/aboutus", "/about"], (req, res) => {
+router.get(["/AboutUs", "/about"], (req, res) => {
     res.status(200).render("../views/mainpages/aboutus.ejs");
 });
 
-router.get(["/contactus", "/contact"], (req, res) => {
-    res.status(200).render("../views/mainpages/contactus.ejs");
+
+router.get(["/Services", "/about"], (req, res) => {
+    res.status(200).render("../views/mainpages/services.ejs");
 });
 
-//route for post req from contact us
-router.post("/smail", (req, res) => {
-    console.log(req.body);
-    email.contactUsEmailSent(req.body.uemail);
-    res.status(200).send("we go the data");
-});
+// Route for Contact Us
+{
+    router.get(["/ContactUS", "/contact"], (req, res) => {
+        res.status(200).render("../views/mainpages/contactus.ejs");
+    });
+
+    router.post("/ContactUs", (req, res) => {
+        console.log(req.body);
+        res.status(200).send("we go the data");
+    });
+}
+
 
 router.get("/*", (req, res) => {
     res.status(404).render("../views/mainpages/error404.ejs");
