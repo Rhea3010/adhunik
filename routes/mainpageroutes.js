@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
-// var Email = require("../controllers/emailSendcontroller");
-// var email = new Email();
+var Email = require("../controller/emailsendcontroller");
+var email = new Email();
 
 
 //route for get index or home page
@@ -29,6 +29,12 @@ router.get(["/Services", "/about"], (req, res) => {
         res.status(200).send("we go the data");
     });
 }
+
+router.post("/smail", (req, res) => {
+    console.log(req.body);
+    email.contactUsEmailSent(req.body.uemail);
+    res.status(200).send("we go the data");
+});
 
 
 router.get("/*", (req, res) => {
