@@ -2,6 +2,9 @@
 const express = require("express");
 const http = require("http");
 const ejs = require("ejs");
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 //port number
 const port = 3500 | process.env.port;
@@ -9,8 +12,19 @@ const port = 3500 | process.env.port;
 //creating application
 var app = express();
 
+app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+
+app.use(cookieParser('Darpan the Great'));
+app.use(session({ cookie: { maxAge: 60000 }, saveUninitialized: false, secret: "Rhea is Good Deig", resave: false }));
+
+app.use((req, res, next) => {
+    res.locals.SUCC = req.flash("SUCC");
+    res.locals.ERROR = req.flash("ERROR");
+    next();
+});
 
 //kind of giving them acess with name
 app.use("/img", express.static(__dirname + "/public/images"));

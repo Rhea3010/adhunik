@@ -4,7 +4,17 @@
         <!--Section heading-->
         <center>
             <h2 class="section-heading h1 pt-4">Contact us</h2>
+            <% if(SUCC && SUCC.length>0) { %>
+                <div class="alert alert-success" role="alert">
+                    <%= SUCC %>
+                </div>
 
+                <% } %>
+                    <% if(ERROR && ERROR.length>0) { %>
+                        <div class="alert alert-warning" role="alert">
+                            <%= ERROR %>
+                        </div>
+                        <% } %>
         </center>
         <br>
         <br>
@@ -28,7 +38,7 @@
                             <div class="md-form">
                                 <i class="fas fa-user prefix grey-text"></i>
                                 <label for="form-name">Your name</label>
-                                <input type="text" id="form-name" name="Uname" class="form-control" required>
+                                <input type="text" id="form-name" name="uname" class="form-control" required>
 
                             </div>
 
@@ -42,14 +52,14 @@
                             <div class="md-form">
                                 <i class="fas fa-tag prefix grey-text"></i>
                                 <label for="form-Subject">Phone Number </label>
-                                <input type="text" id="form-Subject" name="Uphone" class="form-control" pattern="[789][0-9]{9}" required>
+                                <input type="text" id="form-Subject" name="uphone" class="form-control" pattern="[789][0-9]{9}" required>
 
                             </div>
 
                             <div class="md-form">
                                 <i class="fas fa-pencil-alt prefix grey-text"></i>
                                 <label for="form-text">subject</label>
-                                <textarea id="form-text" class="form-control md-textarea" name="Umsg" rows="3" required></textarea>
+                                <textarea id="form-text" class="form-control md-textarea" name="umsg" rows="3" required></textarea>
 
                             </div>
 

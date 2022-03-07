@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var Email = require("../controller/emailsendcontroller");
-var email = new Email();
+var EmailSent = require("../controller/emailsendcontroller");
+var emailsent = new EmailSent();
 
 
 //route for get index or home page
@@ -21,20 +21,22 @@ router.get(["/Services", "/about"], (req, res) => {
 // Route for Contact Us
 {
     router.get(["/ContactUS", "/contact"], (req, res) => {
-        res.status(200).render("../views/mainpages/contactus.ejs");
+        return res.status(200).render("../views/mainpages/contactus.ejs");
     });
 
     router.post("/ContactUs", (req, res) => {
-        console.log(req.body);
-        res.status(200).send("we go the data");
+        emailsent.contactUsEmailSent(req.body, (CbData) => {
+            console.log(CbData.Data);
+            if (CbData.Status == "err") {
+                req.flash("ERROR", "Email Not Sent");
+                return res.status(200).redirect("/Contactus");
+            } else {
+                req.flash("SUCC", "Email Sent");
+                return res.status(200).redirect("/Contactus");
+            }
+        });
     });
 }
-
-router.post("/smail", (req, res) => {
-    console.log(req.body);
-    email.contactUsEmailSent(req.body.uemail);
-    res.status(200).send("we go the data");
-});
 
 
 router.get("/*", (req, res) => {
