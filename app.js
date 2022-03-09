@@ -1,11 +1,11 @@
 // all var are here
 const express = require("express");
-const http = require("http");
+const https = require("https");
 const ejs = require("ejs");
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-
+var httpsOptions = require("./config/https");
 //port number
 const port = 3500 | process.env.port;
 
@@ -39,6 +39,6 @@ app.use("/", require("./routes/mainPageRoutes"));
 
 
 //staring http server
-http.createServer(app).listen(port, () => {
+https.createServer(httpsOptions, app).listen(port, () => {
     console.log("port number is ", port);
 });
