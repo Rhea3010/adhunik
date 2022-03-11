@@ -6,6 +6,7 @@ var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var httpsOptions = require("./config/https");
+var favicon = require("./config/favicon");
 //port number
 const port = 3500 | process.env.port;
 
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
     res.locals.ERROR = req.flash("ERROR");
     next();
 });
+
+favicon(app);
 
 //kind of giving them acess with name
 app.use("/img", express.static(__dirname + "/public/images"));

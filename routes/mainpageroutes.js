@@ -6,22 +6,22 @@ var emailsent = new EmailSent();
 
 //route for get index or home page
 router.get(["/index", "/"], (req, res) => {
-    res.status(200).render("../views/mainpages/index.ejs");
+    res.status(200).render("../views/mainpages/index.ejs", { tname: "" });
 });
 
 router.get(["/AboutUs", "/about"], (req, res) => {
-    res.status(200).render("../views/mainpages/aboutus.ejs");
+    res.status(200).render("../views/mainpages/aboutus.ejs", { tname: "Anout US" });
 });
 
 
 router.get(["/Services", "/about"], (req, res) => {
-    res.status(200).render("../views/mainpages/services.ejs");
+    res.status(200).render("../views/mainpages/services.ejs", { tname: "Services" });
 });
 
 // Route for Contact Us
 {
     router.get(["/ContactUS", "/contact"], (req, res) => {
-        return res.status(200).render("../views/mainpages/contactus.ejs");
+        return res.status(200).render("../views/mainpages/contactus.ejs", { tname: "Contact US" });
     });
 
     router.post("/ContactUs", (req, res) => {
@@ -40,7 +40,7 @@ router.get(["/Services", "/about"], (req, res) => {
 
 
 router.get("/*", (req, res) => {
-    res.status(404).render("../views/mainpages/error404.ejs");
+    res.status(404).render("../views/mainpages/error404.ejs", { tname: "ERROR 404" });
 });
 
 module.exports = router;
