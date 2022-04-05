@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var httpsOptions = require("./config/https");
 var favicon = require("./config/favicon");
+var connectDB = require("./config/connection");
+
 //port number
 const port = 3500 | process.env.port;
 

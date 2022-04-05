@@ -1,8 +1,9 @@
 var transporter = require("../config/mailer");
 var config = require("../config/config.json");
-var ejs = require("ejs");
-class EmailSent {
 
+var ejs = require("ejs");
+
+class EmailSent {
     async contactUsEmailSent(data, cb) {
         // send mail with defined transport object
         await ejs.renderFile("./views/emailtemplates/thankyou.ejs", { Uname: data.uname, Umobile: data.uphone }, async(err, thanskyoufile) => {

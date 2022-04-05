@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 var EmailSent = require("../controller/emailsendcontroller");
 var emailsent = new EmailSent();
-
+var ContactUSForm = require("../controller/contactUsFormController");
+var contactUSForm = new ContactUSForm();
 
 //route for get index or home page
 router.get(["/index", "/"], (req, res) => {
@@ -25,6 +26,9 @@ router.get(["/Services", "/about"], (req, res) => {
     });
 
     router.post("/ContactUs", (req, res) => {
+        contactUSForm.SaveContactUs(req.body, (CbData) => {
+
+        });
         emailsent.contactUsEmailSent(req.body, (CbData) => {
             console.log(CbData.Data);
             if (CbData.Status == "err") {

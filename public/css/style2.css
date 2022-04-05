@@ -59,7 +59,6 @@ a:active {
 
 .feature .feature-box .iconset {
     background: webkit-linear-gradient(to right, #2d2f31, #00070e);
-    none repeat scroll 0 0;
     float: left;
     position: relative;
     width: 18%;

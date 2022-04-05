@@ -1,4 +1,6 @@
 {
     "MyEmail": "adhunikadvert@gmail.com",
-    "MyEmailPass": "tunwvvkcfzjrkkkt"
+    "MyEmailPass": "tunwvvkcfzjrkkkt",
+    "URL1": "mongodb+srv://rhea:Adhunik@adhunik.ia56l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "URL": "mongodb+srv://Adhunik:rhea@adhunik.ia56l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 }
