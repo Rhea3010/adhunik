@@ -27,18 +27,24 @@ router.get(["/Services", "/about"], (req, res) => {
 
     router.post("/ContactUs", (req, res) => {
         contactUSForm.SaveContactUs(req.body, (CbData) => {
-
-        });
-        emailsent.contactUsEmailSent(req.body, (CbData) => {
-            console.log(CbData.Data);
-            if (CbData.Status == "err") {
-                req.flash("ERROR", "Email Not Sent");
+            if (CbData.status == "error") {
+                req.flash("ERROR", "Data Not Saved");
                 return res.status(200).redirect("/Contactus");
             } else {
-                req.flash("SUCC", "Email Sent");
+                req.flash("SUCC", "Data Saved");
                 return res.status(200).redirect("/Contactus");
             }
         });
+        // emailsent.contactUsEmailSent(req.body, (CbData) => {
+        //     console.log(CbData.Data);
+        //     if (CbData.Status == "err") {
+        //         req.flash("ERROR", "Email Not Sent");
+        //         return res.status(200).redirect("/Contactus");
+        //     } else {
+        //         req.flash("SUCC", "Email Sent");
+        //         return res.status(200).redirect("/Contactus");
+        //     }
+        // });
     });
 }
 
