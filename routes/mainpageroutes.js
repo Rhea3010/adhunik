@@ -3,6 +3,7 @@ var router = express.Router();
 var EmailSent = require("../controller/emailsendcontroller");
 var emailsent = new EmailSent();
 var ContactUSForm = require("../controller/contactUsFormController");
+const { json } = require("express/lib/response");
 var contactUSForm = new ContactUSForm();
 
 //route for get index or home page
@@ -14,9 +15,14 @@ router.get(["/AboutUs", "/about"], (req, res) => {
     res.status(200).render("../views/mainpages/aboutus.ejs", { tname: "Anout US" });
 });
 
-
 router.get(["/Services", "/about"], (req, res) => {
     res.status(200).render("../views/mainpages/services.ejs", { tname: "Services" });
+});
+
+router.get("/ShowAllMsg", (req, res) => {
+    contactUSForm.getAllMsg((CbData) => {
+        return res.status(200).render("../views/mainpages/MSg.ejs", { tname: "ALL MSG", data: CbData.data });
+    });
 });
 
 // Route for Contact Us

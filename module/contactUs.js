@@ -10,12 +10,19 @@ const contactUsForm = new mongooes.Schema({
     Phone: {
         type: String
     },
+    MPhone: {
+        type: String
+    },
     Msg: {
         type: String
     },
     added_date: {
         type: Date,
         default: Date.now
+    },
+    Status: {
+        type: Boolean,
+        default: true
     }
 });
 

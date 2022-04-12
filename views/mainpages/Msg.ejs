@@ -1,0 +1,34 @@
+<%- include("../partial/header.ejs") %>
+    <section>
+
+        <div class="container">
+            <div class="row">
+                it will show the list of msg recived
+                <div class="row border  border-white">
+                    <div class="col">Name </div>
+                    <div class="col"> Email</div>
+                    <div class="col"> Phone</div>
+                    <div class="col">Msg</div>
+                </div>
+                <% data.forEach(function(msg) { %>
+                    <div class="row border  border-white">
+                        <div class="col">
+                            <%= msg.Fullname %>
+                        </div>
+                        <div class="col">
+                            <%= msg.Email %>
+                        </div>
+                        <div class="col">
+                            <%= msg.Phone %>
+                                <%= msg.MPhone %>
+                        </div>
+                        <div class="col">
+                            <%= msg.Msg %>
+                        </div>
+                    </div>
+
+                    <% }); %>
+            </div>
+        </div>
+    </section>
+    <%- include("../partial/footer.ejs") %>
