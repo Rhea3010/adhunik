@@ -3,7 +3,6 @@ var ContactUSForm = require("../module/contactUs");
 class ContactUs {
 
     SaveContactUs(data, cb) {
-        console.log("🚀 ~ file: contactUsFormController.js ~ line 6 ~ ContactUs ~ SaveContactUs ~ data", data);
         let Cdata = {
             Fullname: data.uname,
             Email: data.uemail,
@@ -42,6 +41,17 @@ class ContactUs {
                     msg: "data Found",
                     data: Msgdata
                 });
+            }
+        });
+    }
+
+    changeStatus(data, cb) {
+        var status = data.Status == 'true' ? false : true;
+        ContactUSForm.findByIdAndUpdate({ _id: data.id }, { Status: status }, (err, ChangeData) => {
+            if (err) {
+                return cb({ Status: "error", msg: err, data: null });
+            } else {
+                return cb({ Status: "sucess", msg: "Change Done", data: ChangeData });
             }
         });
     }

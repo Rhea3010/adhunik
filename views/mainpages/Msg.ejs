@@ -9,6 +9,7 @@
                     <div class="col"> Email</div>
                     <div class="col"> Phone</div>
                     <div class="col">Msg</div>
+                    <div class="col">Status</div>
                 </div>
                 <% data.forEach(function(msg) { %>
                     <div class="row border  border-white">
@@ -24,6 +25,13 @@
                         </div>
                         <div class="col">
                             <%= msg.Msg %>
+                        </div>
+                        <div class="col">
+                            <% if(msg.Status==true) { %>
+                                <a href="/ChangeStatus/<%= msg._id %>/<%= msg.Status %>">Open</a>
+                                <% } else { %>
+                                    <a href="/ChangeStatus/<%= msg._id %>/<%= msg.Status %>">    Close</a>
+                                    <% } %>
                         </div>
                     </div>
 

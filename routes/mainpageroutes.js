@@ -19,12 +19,6 @@ router.get(["/Services", "/about"], (req, res) => {
     res.status(200).render("../views/mainpages/services.ejs", { tname: "Services" });
 });
 
-router.get("/ShowAllMsg", (req, res) => {
-    contactUSForm.getAllMsg((CbData) => {
-        return res.status(200).render("../views/mainpages/MSg.ejs", { tname: "ALL MSG", data: CbData.data });
-    });
-});
-
 // Route for Contact Us
 {
     router.get(["/ContactUS", "/contact"], (req, res) => {
@@ -53,7 +47,6 @@ router.get("/ShowAllMsg", (req, res) => {
         // });
     });
 }
-
 
 router.get("/*", (req, res) => {
     res.status(404).render("../views/mainpages/error404.ejs", { tname: "ERROR 404" });
