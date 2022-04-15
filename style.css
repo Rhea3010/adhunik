@@ -10,8 +10,9 @@
 }
 
 #welcome-text p {
-    color: #777;
+    color: rgba(70, 139, 179, 0.993);
     font-size: 16px;
+    font-weight: bolder;
 }
 
 .slides {
