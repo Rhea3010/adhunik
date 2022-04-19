@@ -25,6 +25,7 @@ body {
     width: 275px;
     height: 275px;
     overflow: hidden;
+    margin-right: 50px;
     transform: 0.5s;
 }
 
@@ -40,6 +41,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    margin-right: 20px;
 }
 
 .imgBx::before {
@@ -50,7 +52,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(180deg, rgb(171, 160, 185), #000);
+    background: linear-gradient(180deg, rgb(43, 38, 38), #000);
     mix-blend-mode: multiply;
     opacity: 0;
     transition: 0.5s;
