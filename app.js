@@ -41,6 +41,7 @@ app.use("/js", express.static(__dirname + "/public/js"));
 app.set("view engine", "ejs");
 
 app.use("/", require("./routes/msgRoutes"));
+app.use("/services", require("./routes/serviceroute"));
 app.use("/", require("./routes/mainPageRoutes"));
 
 
