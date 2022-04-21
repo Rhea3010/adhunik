@@ -64,16 +64,6 @@ a:active {
     width: 18%;
 }
 
-.feature .feature-box .iconset::after {
-    background: #fdb801 none repeat scroll 0 0;
-    content: "";
-    height: 150%;
-    left: 43%;
-    position: absolute;
-    top: 100%;
-    width: 1px;
-}
-
 .feature .feature-box .feature-content h4 {
     color: #0f0f0f;
     font-size: 18px;
