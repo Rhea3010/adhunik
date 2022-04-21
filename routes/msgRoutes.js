@@ -6,7 +6,7 @@ var contactUSForm = new ContactUSForm();
 
 router.get("/ShowAllMsg", (req, res) => {
     contactUSForm.getAllMsg((CbData) => {
-        return res.status(200).render("../views/mainpages/MSg.ejs", { tname: "ALL MSG", data: CbData.data });
+        return res.status(200).render("../views/message/showAllMsg.ejs", { tname: "ALL MSG", data: CbData.data });
     });
 });
 
