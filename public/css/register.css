@@ -1,0 +1,7 @@
+.bccc {
+    font-family: 'Roboto';
+    font-size: 16px;
+    background: -webkit-linear-gradient(to right, #2d2f31, #00070e) !important;
+    background: linear-gradient(to right, #2d2f31, #00070e) !important;
+    color: rgba(70, 139, 179, 0.993) !important;
+}
