@@ -42,6 +42,7 @@ app.set("view engine", "ejs");
 
 app.use("/", require("./routes/msgRoutes"));
 app.use("/services", require("./routes/serviceroute"));
+app.use("/Admin", require("./routes/adminroute"));
 app.use("/", require("./routes/mainPageRoutes"));
 
 

@@ -12,6 +12,7 @@
         "mongoose": "^6.2.10",
         "nodemailer": "^6.7.2",
         "nodemon": "^2.0.15",
-        "serve-favicon": "^2.5.0"
+        "serve-favicon": "^2.5.0",
+        "uuid": "^8.3.2"
     }
 }
