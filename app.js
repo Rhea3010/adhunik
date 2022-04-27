@@ -19,6 +19,7 @@ app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+process.env.TOKEN_SECRET = require("crypto").randomBytes(64).toString("hex");
 
 app.use(cookieParser('Darpan the Great'));
 app.use(session({ cookie: { maxAge: 60000 }, saveUninitialized: false, secret: "Rhea is Good Deig", resave: false }));
@@ -26,6 +27,14 @@ app.use(session({ cookie: { maxAge: 60000 }, saveUninitialized: false, secret: "
 app.use((req, res, next) => {
     res.locals.SUCC = req.flash("SUCC");
     res.locals.ERROR = req.flash("ERROR");
+    var token = req.cookies.token;
+    if (token == null) {
+        res.locals.Is_User = false;
+        res.locals.User = "";
+    } else {
+        res.locals.User = token;
+        res.locals.Is_User = true;
+    }
     next();
 });
 
@@ -40,7 +49,7 @@ app.use("/js", express.static(__dirname + "/public/js"));
 //seting view engine
 app.set("view engine", "ejs");
 
-app.use("/", require("./routes/msgRoutes"));
+app.use("/Msg", require("./routes/msgRoutes"));
 app.use("/services", require("./routes/serviceroute"));
 app.use("/Admin", require("./routes/adminroute"));
 app.use("/", require("./routes/mainPageRoutes"));

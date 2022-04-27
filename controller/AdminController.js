@@ -20,6 +20,19 @@ class AdminData {
         });
     }
 
+    async CheckAdmin(adminInfo, cb) {
+        Admin.findOne({ UEmail: adminInfo.uemail, UPass: adminInfo.upass }, (err, admin) => {
+            console.log("🚀 ~ file: AdminController.js ~ line 34 ~ AdminData ~ Admin.findOne ~ admin", admin)
+            if (err) {
+                return cb({ Status: "error", Msg: err, data: null });
+            } else if (admin == null) {
+                return cb({ Status: "error", Msg: "No Recored Founed", data: null });
+            } else {
+                return cb({ Status: "Sucess", Msg: "Data Found", data: admin });
+            }
+        });
+
+    }
 
 }
 

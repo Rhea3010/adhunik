@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 var AdminData = require("../controller/AdminController");
 var adminData = new AdminData();
-
+var JWT = require("../middleware/jwt");
+var jwt = new JWT();
 
 //LogIn Routes
 {
@@ -11,8 +12,18 @@ var adminData = new AdminData();
     });
 
     router.post("/Login", (req, res) => {
-        console.log("🚀 ~ file: adminroute.js ~ line 14 ~ router.post ~ req", req.body)
+        adminData.CheckAdmin(req.body, (CbData) => {
+            console.log("🚀 ~ file: adminroute.js ~ line 15 ~ adminData.CheckAdmin ~ CbData", CbData)
+            if (CbData.Status == "error") {
+                req.flash("ERROR", "Email Or PAssword dont match");
 
+            } else {
+                var token = jwt.idGenrator({ UD: CbData.data.UID });
+                console.log("🚀 ~ file: adminroute.js ~ line 22 ~ adminData.CheckAdmin ~ token", token)
+                res.cookie("token", token, { maxAge: 1000000000, httpOnly: true });
+                res.status(200).redirect("/");
+            }
+        });
     });
 }
 
